@@ -8,6 +8,8 @@ import {
   Alert,
   ToastAndroid,
   Modal,
+  Image,
+  ImageBackground,
 } from "react-native";
 
 const App = () => {
@@ -23,7 +25,12 @@ const App = () => {
   };
 
   return (
-    <View style={styles.body}>
+    <ImageBackground
+      style={styles.body}
+      source={{
+        uri: "https://cdn.pixabay.com/photo/2013/07/12/12/35/texture-145968_960_720.png",
+      }}
+    >
       <Modal
         visible={showWarning}
         transparent
@@ -69,16 +76,30 @@ const App = () => {
         <Text style={styles.text}>{submitted ? "Clear" : "Submit"}</Text>
       </Pressable>
       {submitted ? (
-        <Text style={styles.text}>You are registered as {name}</Text>
-      ) : null}
-    </View>
+        <View style={styles.body}>
+          <Text style={styles.text}>You are registered as {name}</Text>
+          <Image
+            style={styles.image}
+            source={require("./assets/done.png")}
+            resizeMode="stretch"
+          />
+        </View>
+      ) : (
+        <Image
+          style={styles.image}
+          source={{
+            uri: "https://cdn.pixabay.com/photo/2018/01/04/15/51/404-error-3060993_960_720.png",
+          }}
+          resizeMode="stretch"
+        />
+      )}
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: "#ffffff",
     alignItems: "center",
   },
   text: {
@@ -132,6 +153,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#00ffff",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 10,
   },
 });
 
