@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 
 export default function ScreenB({ navigation, route }) {
@@ -39,3 +39,4 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
+*/
